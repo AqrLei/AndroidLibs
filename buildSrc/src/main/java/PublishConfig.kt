@@ -26,8 +26,8 @@ object LibKey {
 
 object Libs {
     val bannerView =
-        PublishEntity("bannerview", "1.0.0-alpha01", "BannerView of Android's ui widget")
-    val logHelper = PublishEntity("loghelper", "1.0.0-alpha01", "Log util ")
+        PublishEntity("bannerview", "1.0.0-beta01", "BannerView of Android's ui widget")
+    val logHelper = PublishEntity("loghelper", "1.0.0-beta01", "Log util ")
 }
 
 data class PublishEntity(
