@@ -1,6 +1,6 @@
 include(":app")
 
-includeModules(arrayOf("BannerView", "LogHelper"), "librarys")
+includeModules(arrayOf("BannerView", "LogHelper","WidgetCollection"), "librarys")
 
 rootProject.buildFileName = "build.gradle.kts"
 
