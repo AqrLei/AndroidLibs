@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion(App.minSdk)
         targetSdkVersion(App.targetSdk)
-        versionCode = Helper.versionCode
-        versionName = Helper.versionName
+        versionCode = 1
+        versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         extra.set(LibKey.artifactIdKey,Libs.logHelper.artifactId)

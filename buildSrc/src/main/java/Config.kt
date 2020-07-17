@@ -24,16 +24,6 @@ object App {
     const val targetSdk = 29
 }
 
-object Helper {
-    const val versionCode = 10000
-    const val versionName = "1.0.0"
-}
-
-object Widget {
-    const val versionCode = 10000
-    const val versionName = "1.0.0"
-}
-
 object ClassPath {
     const val android_gradle = "com.android.tools.build:gradle:4.0.0"
     const val kotlin_gradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"

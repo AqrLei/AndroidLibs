@@ -11,8 +11,8 @@ android {
     defaultConfig {
         minSdkVersion(App.minSdk)
         targetSdkVersion(App.targetSdk)
-        versionCode = Widget.versionCode
-        versionName = Widget.versionName
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField(
