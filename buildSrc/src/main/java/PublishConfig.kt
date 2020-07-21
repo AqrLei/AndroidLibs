@@ -35,6 +35,14 @@ object Libs {
 
     val guide = PublishEntity("guide","1.0.0-alpha01","guide manager")
 
+    val cache = PublishEntity("cache","1.0.0-alpha01","cache")
+
+    val imagehandler = PublishEntity("image-handler","1.0.0-alpha01","image-handler")
+
+    val net = PublishEntity("net","1.0.0-alpha01","net")
+
+    val permission = PublishEntity("permission","1.0.0-alpha01","permission")
+
 }
 
 data class PublishEntity(

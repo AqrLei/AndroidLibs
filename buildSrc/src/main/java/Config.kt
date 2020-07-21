@@ -33,6 +33,8 @@ object ClassPath {
 class Lib {
     val bannerView = Libs.bannerView.toString()
     val logHelper = Libs.logHelper.toString()
+    val cache = Libs.cache.toString()
+    val utilCollection = Libs.utils.toString()
 }
 
 object Deps {
