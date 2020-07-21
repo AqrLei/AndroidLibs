@@ -1,4 +1,4 @@
-package com.aqrlei.util
+package com.aqrlei.util.ext
 
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException

@@ -23,6 +23,7 @@ android {
 dependencies {
 
     implementation(Deps.kotlin.stdlib)
+    implementation(Deps.kotlin.coroutines)
     implementation(Deps.androidx.appcompat)
 }
 apply(from = rootProject.file("gradle/lib_maven_publish.gradle.kts"))

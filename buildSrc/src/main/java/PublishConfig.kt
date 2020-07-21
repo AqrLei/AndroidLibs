@@ -31,7 +31,7 @@ object Libs {
 
     val widgets = PublishEntity("widget-collection","1.0.0-alpha02","widget collection")
 
-    val utils = PublishEntity("util-collection","1.0.0-alpha01","util collection")
+    val utils = PublishEntity("util-collection","1.0.0-alpha02","util collection")
 
     val guide = PublishEntity("guide","1.0.0-alpha01","guide manager")
 

@@ -19,12 +19,13 @@ import android.view.ContextThemeWrapper
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.aqrlei.util.ext.mainHandler
 import java.io.File
 
 /**
  * created by AqrLei on 2020/3/18
  */
-object AppHelper {
+object AppUtil {
 
     /**
      * 获取剪贴板数据
