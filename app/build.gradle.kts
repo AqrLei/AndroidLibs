@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("android.extensions")
+    kotlin("kapt")
+
 }
 
 android {
@@ -48,6 +50,11 @@ dependencies {
 
     implementation(Deps.androidx.appcompat)
     implementation(Deps.androidx.constraint)
+
+    implementation(Deps.okhttp.okhttp)
+    implementation(Deps.moshi.moshi)
+    implementation(Deps.moshi.moshi_kotlin)
+    kapt(Deps.moshi.moshi_kotlin_codegen)
 
     testImplementation(Deps.junit)
     testImplementation(Deps.androidx.junit_ext)
