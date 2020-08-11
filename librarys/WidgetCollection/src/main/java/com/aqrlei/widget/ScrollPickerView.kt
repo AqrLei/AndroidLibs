@@ -28,6 +28,7 @@ class ScrollPickerView @JvmOverloads constructor(
 
         private val mResources = Resources.getSystem().displayMetrics
         private val DEFAULT_ITEM_TEXT_SIZE = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 20f, mResources)
+        private val DEFAULT_ITEM_HINT_TEXT_SIZE = DEFAULT_ITEM_TEXT_SIZE
         private val DEFAULT_ITEM_PADDING = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 15f, mResources)
         private val DEFAULT_DIVIDER_HEIGHT = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1F, mResources)
 
@@ -57,6 +58,7 @@ class ScrollPickerView @JvmOverloads constructor(
 
 
     private var itemTextSize: Float = DEFAULT_ITEM_TEXT_SIZE
+    private var itemHintTextSize : Float = DEFAULT_ITEM_HINT_TEXT_SIZE
     private var itemHorizontalPadding: Float = DEFAULT_ITEM_PADDING
     private var itemVerticalPadding: Float = DEFAULT_ITEM_PADDING
     private var dividerHeight: Float = DEFAULT_DIVIDER_HEIGHT
@@ -75,6 +77,7 @@ class ScrollPickerView @JvmOverloads constructor(
         context.obtainStyledAttributes(attrs, R.styleable.ScrollPickerView).apply {
             offset = getInt(R.styleable.ScrollPickerView_item_offset, offset)
             itemTextSize = getDimension(R.styleable.ScrollPickerView_item_text_size, itemTextSize)
+            itemHintTextSize = getDimension(R.styleable.ScrollPickerView_item_hint_text_size,itemTextSize)
             itemHorizontalPadding = getDimension(R.styleable.ScrollPickerView_item_padding, itemHorizontalPadding)
             itemVerticalPadding = getDimension(R.styleable.ScrollPickerView_item_padding, itemVerticalPadding)
             itemHorizontalPadding =
@@ -158,7 +161,7 @@ class ScrollPickerView @JvmOverloads constructor(
     private fun createItemView(item: String): TextView {
         val tv = TextView(context).apply {
             layoutParams = LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-            setSingleLine(true)
+            isSingleLine = true
             setTextSize(TypedValue.COMPLEX_UNIT_PX, itemTextSize)
             text = item
             gravity = Gravity.CENTER
@@ -167,8 +170,9 @@ class ScrollPickerView @JvmOverloads constructor(
             setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding)
 
         }
-        if (itemHeight == 0) {
-            itemHeight = getItemViewMeasureHeight(tv)
+        val tempItemHeight = getItemViewMeasureHeight(tv)
+        if (itemHeight < tempItemHeight) {
+            itemHeight = tempItemHeight
             containerView.layoutParams =
                 LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, itemHeight * displayItemCount)
             this.layoutParams = this.layoutParams.apply {
@@ -208,8 +212,16 @@ class ScrollPickerView @JvmOverloads constructor(
             val itemView = containerView.getChildAt(i) as? TextView ?: return
             if (position == i) {
                 itemView.setTextColor(itemSelectedColor)
+                itemView.setTextSize(TypedValue.COMPLEX_UNIT_PX,itemTextSize)
+                val horizontalPadding = itemHorizontalPadding.toInt()
+                val verticalPadding = itemVerticalPadding.toInt()
+                itemView.setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding)
             } else {
                 itemView.setTextColor(itemHintColor)
+                itemView.setTextSize(TypedValue.COMPLEX_UNIT_PX,itemHintTextSize)
+                val horizontalHintPadding = itemHorizontalPadding.toInt()
+                val verticalHintPadding = (itemVerticalPadding + (itemTextSize  - itemHintTextSize) / 2).toInt()
+                itemView.setPadding(horizontalHintPadding, verticalHintPadding, horizontalHintPadding, verticalHintPadding)
             }
         }
     }

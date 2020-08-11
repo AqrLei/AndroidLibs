@@ -4,6 +4,7 @@
     <declare-styleable name="ScrollPickerView">
         <attr name="item_offset" format="integer" />
         <attr name="item_text_size" format="dimension" />
+        <attr name="item_hint_text_size" format="dimension" />
         <attr name="item_horizontal_padding" format="dimension" />
         <attr name="item_vertical_padding" format="dimension" />
         <attr name="item_padding" format="dimension" />
